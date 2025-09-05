@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Michelle y Rafael - Invitación de Boda</title>
+  
+  <!-- Meta Tags para WhatsApp Preview -->
+  <meta property="og:title" content="Michelle y Rafael - Invitación de Boda">
+  <meta property="og:description" content="¡Te invitamos a celebrar nuestra boda! 25 de Octubre de 2025 en Cuquio, Jalisco">
+  <meta property="og:image" content="https://tudominio.netlify.app/pareja.png">
+  <meta property="og:url" content="https://tudominio.netlify.app">
+  <meta property="og:type" content="website">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * {margin: 0;padding: 0;box-sizing: border-box;font-family: 'Montserrat', sans-serif;}
+    body {background-color: #f9f6f2;color: #5a4c3e;line-height: 1.6;}
+    .container {max-width: 100%;margin: 0 auto;background: white;box-shadow: 0 0 15px rgba(0,0,0,0.1);border-radius: 8px;overflow: hidden;}
+
+    header {position: relative;height: 100vh;max-height: 600px;display: flex;justify-content: center;align-items: center;color: white;}
+    .header-background img {width: 100%;height: 100%;object-fit: cover;position: absolute;top: 0;left: 0;}
+    .header-overlay {position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: linear-gradient(transparent, rgba(0,0,0,0.7));}
+    .header-content {position: relative;text-align: center;padding: 20px;}
+    .names {font-family: 'Playfair Display', serif;font-size: 3.5em;margin-bottom: 15px;text-shadow: 2px 2px 8px rgba(0,0,0,0.7);}
+    .intro {font-size: 1.3em;margin-bottom: 20px;font-style: italic;text-shadow: 1px 1px 3px rgba(0,0,0,0.7);}
+    .date-badge {background: rgba(138, 122, 99, 0.85);color: white;padding: 12px 25px;border-radius: 30px;font-size: 1.2em;display: inline-block;font-weight: 500;}
+
+    .details {padding: 30px 20px;text-align: center;}
+    .section-title {font-family: 'Playfair Display', serif;font-size: 2em;margin-bottom: 30px;color: #9f8d7a;position: relative;display: inline-block;}
+    .section-title:after {content: "";position: absolute;bottom: -10px;left: 50%;transform: translateX(-50%);width: 60px;height: 2px;background: #d4c1a0;}
+
+    .event-details {margin-bottom: 30px;display: flex;flex-wrap: wrap;justify-content: center;gap: 20px;}
+    .info-card {padding: 20px 15px;border-radius: 8px;width: 100%;max-width: 300px;box-shadow: 0 3px 10px rgba(0,0,0,0.05);}
+    .info-card.fecha {background: #8a7a63; color: white;}
+    .info-card.ceremonia {background: #7a6854; color: white;}
+    .info-card.recepcion {background: #6d5c4b; color: white;}
+    .info-title {font-family: 'Playfair Display', serif;font-size: 1.2em;margin-bottom: 10px;}
+    .info-content {font-size: 1em;line-height: 1.5;}
+
+    /* Calendario */
+    .calendar-icon {width: 70px;height: 85px;background: #fff;border: 2px solid #d4c1a0;border-radius: 6px;overflow: hidden;display: inline-block;box-shadow: 0 3px 6px rgba(0,0,0,0.15);margin: 0 auto 15px;}
+    .calendar-header {background: #d4c1a0;color: white;font-size: 1em;font-weight: bold;text-align: center;padding: 5px 0;font-family: 'Montserrat', sans-serif;}
+    .calendar-day {font-size: 2em;font-weight: bold;color: #5a4c3e;text-align: center;padding-top: 8px;line-height: 1.2;font-family: 'Playfair Display', serif;}
+
+    /* Radios responsivos */
+    .radio-group {display: flex;gap: 20px;flex-wrap: wrap;margin-top: 5px;}
+    .radio-option {display: flex;align-items: center;gap: 8px;}
+
+    /* Mapa */
+    .location-map {margin-top: 30px;}
+    .map-container {margin-top: 15px;border-radius: 8px;overflow: hidden;box-shadow: 0 3px 10px rgba(0,0,0,0.1);}
+    .map-container iframe {width: 100%;height: 250px;border: none;}
+    .location-info {text-align: center;margin-bottom: 25px;}
+    .location-city {font-size: 1.5em;font-weight: bold;color: #5a4c3e;margin-bottom: 15px;font-family: 'Playfair Display', serif;}
+    .location-detail {font-size: 1.2em;color: #7a6854;margin: 10px 0;font-weight: 500;}
+
+    /* Mesa de regalos */
+    .gift-section {text-align: center;margin: 50px auto;padding: 20px;}
+    .gift-container {display: flex;flex-wrap: wrap;justify-content: center;gap: 30px;}
+    .gift-card {background: #fff;border-radius: 12px;box-shadow: 0 4px 15px rgba(0,0,0,0.1);width: 280px;padding: 20px;text-align: center;}
+    .gift-card img, .gift-card svg {max-width: 180px;height: auto;margin-bottom: 20px;}
+    .gift-btn {display: inline-block;background: black;color: white;padding: 12px 25px;border-radius: 6px;text-decoration: none;font-weight: bold;}
+    .gift-card.liverpool {background: #ff0084;color: white;}
+    .gift-card.liverpool .gift-btn {background: white;color: #ff0084;}
+
+    /* Confirmación */
+    .confirmation-form {background: #f9f6f2;padding: 25px;border-radius: 10px;margin: 40px auto;box-shadow: 0 5px 15px rgba(0,0,0,0.05);max-width: 600px;}
+    .form-group {margin-bottom: 20px;text-align: left;}
+    .form-group label {display: block;margin-bottom: 8px;font-weight: 500;color: #8a7a63;}
+    .form-group input, .form-group select {width: 100%;padding: 12px 15px;border: 1px solid #ddd;border-radius: 8px;}
+    .acompanantes-container {display: none;margin-top: 15px;border-left: 3px solid #d4c1a0;padding-left: 15px;}
+    .btn {background-color: #d4c1a0;color: white;border: none;padding: 15px 30px;border-radius: 8px;cursor: pointer;font-size: 1.1em;font-weight: 500;margin: 10px;transition: all 0.3s ease;}
+    .btn:hover {background-color: #bda67d;transform: translateY(-2px);}
+    .btn:disabled {background: #ccc;cursor: not-allowed;transform: none;}
+    .btn-whatsapp {background-color: #25D366;display: inline-flex;align-items: center;justify-content: center;}
+    .btn-whatsapp:hover {background-color: #128C7E;}
+
+    .love-message {text-align: center;font-style: italic;margin: 40px auto;max-width: 800px;font-size: 1.1em;color: #5a4c3e;}
+    .dress-code {text-align: center;margin: 20px auto;max-width: 700px;font-size: 1em;color: #5a4c3e;font-style: italic;}
+
+    footer {background: #5a4c3e;color: white;text-align: center;padding: 20px;font-size: 0.9em;}
+    
+    /* Notificación */
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 15px 20px;
+      background: #25D366;
+      color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 1000;
+      opacity: 0;
+      transform: translateX(100px);
+      transition: all 0.4s ease;
+    }
+    .notification.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="header-background"><img src="pareja.png" alt="Fondo de invitación"></div>
+      <div class="header-overlay"></div>
+      <div class="header-content">
+        <h1 class="names">Michelle & Rafael</h1>
+        <p class="intro">Tienen el honor de invitarte a celebrar su boda</p>
+        <div class="date-badge">25 de Octubre de 2025</div>
+      </div>
+    </header>
+
+    <section class="details">
+      <h2 class="section-title">Nuestra Boda</h2>
+      <div class="event-details">
+        <div class="info-card fecha">
+          <div class="icon calendar-icon"><div class="calendar-header">OCT</div><div class="calendar-day">25</div></div>
+          <div class="info-title">Fecha</div>
+          <div class="info-content">Sábado, 25 de Octubre de 2025</div>
+        </div>
+        <div class="info-card ceremonia">
+          <div class="icon">⛪</div>
+          <div class="info-title">Ceremonia Religiosa</div>
+          <div class="info-content">18:00 horas<br>Templo San Felipe Apóstol</div>
+        </div>
+        <div class="info-card recepcion">
+          <div class="icon">🎉</div>
+          <div class="info-title">Recepción</div>
+          <div class="info-content">19:30 horas<br>Rancho El Motivillo</div>
+        </div>
+      </div>
+
+      <!-- Confirmación -->
+      <div class="confirmation-form">
+        <h2 class="section-title">Confirmación de Asistencia</h2>
+        <form id="confirmacionForm">
+          <div class="form-group">
+            <label for="nombre">Nombre completo:</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="Escribe tu nombre completo">
+          </div>
+          <div class="form-group">
+            <label for="asistencia">¿Asistirás a nuestra boda?</label>
+            <div class="radio-group">
+              <div class="radio-option"><input type="radio" id="asistencia_si" name="asistencia" value="Sí" required><label for="asistencia_si">Sí, asistiré</label></div>
+              <div class="radio-option"><input type="radio" id="asistencia_no" name="asistencia" value="No"><label for="asistencia_no">No podré asistir</label></div>
+            </div>
+          </div>
+
+          <div class="form-group" id="grupoPareja" style="display:none;">
+            <label for="llevaPareja">¿Llevarás pareja o alguien más?</label>
+            <div class="radio-group">
+              <div class="radio-option"><input type="radio" id="pareja_si" name="pareja" value="Sí"><label for="pareja_si">Sí</label></div>
+              <div class="radio-option"><input type="radio" id="pareja_no" name="pareja" value="No"><label for="pareja_no">No</label></div>
+            </div>
+          </div>
+
+          <div class="acompanantes-container" id="acompananteConfirm">
+            <div class="form-group"><label for="acompanante1">Por favor confirma el nombre de tu acompañante:</label><input type="text" id="acompanante1" name="acompanante1" placeholder="Nombre completo"></div>
+          </div>
+
+          <div class="form-group"><label for="mensaje">Mensaje opcional:</label><input type="text" id="mensaje" name="mensaje" placeholder="Escribe un mensaje para los novios (opcional)"></div>
+
+          <button type="button" id="btnNovio" class="btn btn-whatsapp">💬 Enviar al Novio</button>
+          <button type="button" id="btnNovia" class="btn btn-whatsapp">💬 Enviar a la Novia</button>
+        </form>
+      </div>
+
+      <!-- Mesa de regalos -->
+      <section class="gift-section">
+        <h2 class="section-title">Mesa de Regalos</h2>
+        <div class="gift-container">
+          <div class="gift-card amazon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon"/>
+            <a href="https://www.amazon.com.mx/wedding/registry/RQD3ZOQ9ZDQ9" target="_blank" class="gift-btn">Ver mesa!</a>
+          </div>
+          <div class="gift-card liverpool">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 333 100" class="liverpool-logo">
+              <text x="0" y="75" font-size="65" font-family="Arial, sans-serif" font-weight="bold" fill="white">Liverpool</text>
+            </svg>
+            <a href="https://mesaderegalos.liverpool.com.mx/gestiondeeventos/listaderegalos/51695120" target="_blank" class="gift-btn">Ver mesa!</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ubicación -->
+      <div class="location-map">
+        <h3 class="section-title">Ubicación</h3>
+        <div class="location-info">
+          <p class="location-city">Cuquio, Jalisco</p>
+          <p class="location-detail">Ceremonia: Templo San Felipe Apóstol, Cuquio</p>
+          <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.049869512712!2d-103.0257362!3d20.9283538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428c37f1d393ab1%3A0xbaf8a20d2a537fc0!2sParroquia%20de%20San%20Felipe%20Ap%C3%B3stol!5e0!3m2!1ses!2smx!4v1725400000000!5m2!1ses!2smx" allowfullscreen="" loading="lazy"></iframe></div>
+          <p class="location-detail">Recepción: Rancho El Motivillo, Cuquio</p>
+          <div class="map-container"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.273321176045!2d-103.0156982!3d20.956251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428c3cf9dd80867%3A0x81def9c9e7160de4!2sRancho%20el%20Motivillo!5e0!3m2!1ses!2smx!4v1725403600000!5m2!1ses!2smx" allowfullscreen="" loading="lazy"></iframe></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mensaje Amor -->
+    <div class="love-message">
+      “El amor enriquece el alma, enriquece el corazón y la manera cumbre de la relación humana es el amor. 
+      Tenemos que festejar eso, y tu compañía será parte de esta celebración. 
+      ¡Gracias por existir en nuestra vida!”
+    </div>
+
+    <!-- Dress Code -->
+    <div class="dress-code">
+      Nota: No hay regla de etiqueta, pero se sugiere asistir con atuendo formal.  
+      El concepto de la boda es <strong>“Una noche de luna”.</strong>Los colores obscuros serán ideales
+    </div>
+
+    <footer>
+      <p>Por favor confirma tu asistencia antes del 10 de Octubre de 2025</p>
+      <p>Teléfono: 33 14488222 | Email: estevezdelsanchez@outlook.com</p>
+    </footer>
+  </div>
+
+  <div class="notification" id="notification">¡Redirigiendo a WhatsApp!</div>
+
+  <!-- Script WhatsApp -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const grupoPareja = document.getElementById("grupoPareja");
+      const acompConfirm = document.getElementById("acompananteConfirm");
+      const btnNovio = document.getElementById("btnNovio");
+      const btnNovia = document.getElementById("btnNovia");
+      const notification = document.getElementById("notification");
+
+      // Mostrar notificación
+      function showNotification() {
+        notification.classList.add('show');
+        setTimeout(() => {
+          notification.classList.remove('show');
+        }, 3000);
+      }
+
+      // Mostrar/ocultar secciones según las opciones seleccionadas
+      document.querySelectorAll("input[name='asistencia']").forEach(radio => {
+        radio.addEventListener("change", () => {
+          if (radio.value === "Sí") {
+            grupoPareja.style.display = "block";
+          } else {
+            grupoPareja.style.display = "none";
+            acompConfirm.style.display = "none";
+          }
+        });
+      });
+
+      document.querySelectorAll("input[name='pareja']").forEach(radio => {
+        radio.addEventListener("change", () => {
+          if (radio.value === "Sí") {
+            acompConfirm.style.display = "block";
+          } else {
+            acompConfirm.style.display = "none";
+          }
+        });
+      });
+
+      // Función para enviar por WhatsApp
+      function enviarWhatsApp(numero, destinatario) {
+        const nombre = document.getElementById("nombre").value.trim();
+        const asistencia = document.querySelector("input[name='asistencia']:checked");
+        const pareja = document.querySelector("input[name='pareja']:checked");
+        const acompanante = document.getElementById("acompanante1").value.trim();
+        const mensaje = document.getElementById("mensaje").value.trim();
+
+        // Validar campos obligatorios
+        if (!nombre) {
+          alert("Por favor, ingresa tu nombre completo.");
+          return;
+        }
+
+        if (!asistencia) {
+          alert("Por favor, indica si asistirás o no a la boda.");
+          return;
+        }
+
+        let texto = `¡Hola ${destinatario}! 👋\n\n`;
+        texto += `Te informo sobre mi confirmación para tu boda:\n\n`;
+        texto += `*Nombre:* ${nombre}\n`;
+        texto += `*Asistencia:* ${asistencia.value}\n`;
+        
+        if (asistencia.value === "Sí" && pareja) {
+          texto += `*¿Llevaré acompañante?:* ${pareja.value}\n`;
+          if (pareja.value === "Sí" && acompanante) {
+            texto += `*Nombre del acompañante:* ${acompanante}\n`;
+          }
+        }
+        
+        if (mensaje) {
+          texto += `\n*Mensaje:* ${mensaje}\n`;
+        }
+        
+        texto += `\n¡Nos vemos pronto! 💒`;
+
+        // Codificar el texto para URL
+        const textoCodificado = encodeURIComponent(texto);
+        
+        // Crear el enlace de WhatsApp
+        const url = `https://wa.me/${numero}?text=${textoCodificado}`;
+        
+        // Mostrar notificación
+        showNotification();
+        
+        // Abrir en una nueva ventana después de un breve retraso
+        setTimeout(() => {
+          window.open(url, "_blank");
+        }, 1000);
+      }
+
+      // Asignar eventos a los botones
+      btnNovio.addEventListener("click", () => enviarWhatsApp("523314488222", "Rafael"));
+      btnNovia.addEventListener("click", () => enviarWhatsApp("523334627419", "Michelle"));
+    });
+  </script>
+</body>
+</html>
