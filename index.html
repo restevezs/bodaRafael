@@ -16,6 +16,7 @@
   <meta name="twitter:card" content="summary_large_image">
   
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {margin: 0;padding: 0;box-sizing: border-box;font-family: 'Montserrat', sans-serif;}
     body {background-color: #f9f6f2;color: #5a4c3e;line-height: 1.6;}
@@ -89,10 +90,10 @@
       }
     }
     
-    .btn {background-color: #d4c1a0;color: white;border: none;padding: 15px 25px;border-radius: 8px;cursor: pointer;font-size: 1.1em;font-weight: 500;transition: all 0.3s ease;width: 100%;text-align: center;}
+    .btn {background-color: #d4c1a0;color: white;border: none;padding: 15px 25px;border-radius: 8px;cursor: pointer;font-size: 1.1em;font-weight: 500;transition: all 0.3s ease;width: 100%;text-align: center;display: flex;align-items: center;justify-content: center;gap: 10px;}
     .btn:hover {background-color: #bda67d;transform: translateY(-2px);}
     .btn:disabled {background: #ccc;cursor: not-allowed;transform: none;}
-    .btn-whatsapp {background-color: #25D366;display: flex;align-items: center;justify-content: center;gap: 8px;}
+    .btn-whatsapp {background-color: #25D366;}
     .btn-whatsapp:hover {background-color: #128C7E;}
 
     .love-message {text-align: center;font-style: italic;margin: 40px auto;max-width: 800px;font-size: 1.1em;color: #5a4c3e;padding: 0 20px;}
@@ -154,6 +155,21 @@
         width: 100%;
         max-width: 280px;
       }
+    }
+
+    /* Mejora para el enlace personalizado */
+    .custom-url {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 1.2em;
+    }
+    .custom-url a {
+      color: #8a7a63;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .custom-url a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -221,8 +237,8 @@
           <div class="form-group"><label for="mensaje">Mensaje opcional:</label><input type="text" id="mensaje" name="mensaje" placeholder="Escribe un mensaje para los novios (opcional)"></div>
 
           <div class="buttons-container">
-            <button type="button" id="btnNovio" class="btn btn-whatsapp">💬 Enviar al Novio</button>
-            <button type="button" id="btnNovia" class="btn btn-whatsapp">💬 Enviar a la Novia</button>
+            <button type="button" id="btnNovio" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Enviar al Novio</button>
+            <button type="button" id="btnNovia" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Enviar a la Novia</button>
           </div>
         </form>
       </div>
@@ -317,7 +333,7 @@
         });
       });
 
-      // Función para enviar por WhatsApp
+      // Función para enviar por WhatsApp - MEJORADA para móviles
       function enviarWhatsApp(numero, destinatario) {
         const nombre = document.getElementById("nombre").value.trim();
         const asistencia = document.querySelector("input[name='asistencia']:checked");
@@ -357,16 +373,17 @@
         // Codificar el texto para URL
         const textoCodificado = encodeURIComponent(texto);
         
-        // Crear el enlace de WhatsApp
-        const url = `https://wa.me/${numero}?text=${textoCodificado}`;
+        // Crear el enlace de WhatsApp - MEJORADO para móviles
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        const url = isMobile ? `whatsapp://send?phone=${numero}&text=${textoCodificado}` : `https://web.whatsapp.com/send?phone=${numero}&text=${textoCodificado}`;
         
         // Mostrar notificación
         showNotification();
         
-        // Abrir en una nueva ventana después de un breve retraso
+        // Abrir WhatsApp
         setTimeout(() => {
           window.open(url, "_blank");
-        }, 1000);
+        }, 800);
       }
 
       // Asignar eventos a los botones
